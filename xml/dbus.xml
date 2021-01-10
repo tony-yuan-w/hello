@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<node>
+    <interface name='org.philips.chargerMgr'>
+      <annotation name='org.philips.Annotation' value='OnInterface'/>
+      <annotation name='org.philips.Annotation' value='AlsoOnInterface'/>
+      <method name='StopCharging'/>
+      <method name='ResumeCharging'/>
+      <signal name='AcChange'>
+      <arg type='b' name='state'/>
+      </signal>
+      <property type='b' name='AcOnline' access='read'/>
+      <property type='b' name='test' access='read'/>
+    </interface>
+    <interface name='org.philips.batteryMgr'>
+      <annotation name='org.philips.Annotation' value='OnInterface'/>
+      <annotation name='org.philips.Annotation' value='AlsoOnInterface'/>
+      <signal name='BatteryWarn'>
+        <annotation name='org.philips.Annotation' value='Onsignal'/>
+        <arg type='u' name='type'>
+          <annotation name='org.philips.Annotation' value='OnArg_NonFirst'/>
+        </arg>
+      </signal>
+      <property type='b' name='qualified' access='read'/>
+      <property type='b' name='present' access='read'/>
+      <property type='u' name='cycle_count' access='read'/>
+      <property type='s' name='status' access='read'/>
+      <property type='u' name='charge_now' access='read'/>
+      <property type='u' name='charge_full' access='read'/>
+      <property type='u' name='charge_full_design' access='read'/>
+      <property type='i' name='mode_register' access='read'/>
+      <property type='i' name='status_register' access='read'/>
+      <property type='u' name='capacity' access='read'/>
+      <property type='u' name='absolute_charge' access='read'/>
+      <property type='u' name='time_to_empty_avg' access='read'/>
+      <property type='u' name='time_to_full_avg' access='read'/>
+      <property type='u' name='max_error' access='read'/>
+      <property type='u' name='constant_charge_current' access='read'/>
+      <property type='u' name='constant_charge_voltage' access='read'/>
+      <property type='u' name='temp' access='read'/>
+      <property type='u' name='time_to_empty_now' access='read'/>
+      <property type='u' name='current_avg' access='read'/>
+      <property type='s' name='date' access='read'/>
+      <property type='s' name='manufacturer' access='read'/>
+      <property type='s' name='model_name' access='read'/>
+      <property type='s' name='serial_number' access='read'/>
+    </interface>
+</node>

@@ -1,0 +1,14 @@
+[Unit]
+Description=charger service
+After=systemd-udevd.service dbus.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/philips/bin/charger_battery_service
+#ExecStop=/bin/kill -2 $MAINPID
+KillMode=process
+KillSignal=2
+
+
+[Install]
+WantedBy=multi-user.target

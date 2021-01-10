@@ -1,0 +1,41 @@
+#! /bin/sh
+set -e
+
+PIDFILE=/var/run/charger_service.pid
+
+# source function library
+. /etc/init.d/functions
+
+export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
+
+case "$1" in
+  start)
+	echo "Starting charger service"
+	start-stop-daemon -S -b -m -p $PIDFILE -x /usr/local/philips/bin/charger_service
+	echo "done."
+	;;
+  stop)
+	echo -n "Stopping charger service"
+	start-stop-daemon -K -p $PIDFILE -s 2
+	echo "."
+	;;
+
+  restart)
+	echo -n "Restarting charger service "
+	start-stop-daemon -K -p $PIDFILE
+	sleep 2
+	start-stop-daemon -S -p $PIDFILE -x /usr/local/philips/bin/charger_service
+	echo "."
+	;;
+
+  status)
+	status /usr/local/philips/bin/charger_service
+	exit $?
+  ;;
+
+  *)
+	echo "Usage: /etc/init.d/charger-service {start|stop|status|restart}"
+	exit 1
+esac
+
+exit 0

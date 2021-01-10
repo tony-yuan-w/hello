@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/charger_cmd.dir/dbus_generate_client.c.o CMakeFiles/charger_cmd.dir/dbus_client.cpp.o CMakeFiles/charger_cmd.dir/charger_cmd.cpp.o CMakeFiles/charger_cmd.dir/charger_cmd_autogen/mocs_compilation.cpp.o  -o charger_cmd -Wl,-rpath,:::::::::::::: -lpthread -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lsystemd 
